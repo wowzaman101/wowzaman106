@@ -11,6 +11,10 @@ func New(gh gamehdl.Handler) *fiber.App {
 
 	app := fiber.New()
 
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: []string{"*"},
+	}))
+
 	// Health check route
 	app.Get("/health", func(c fiber.Ctx) error {
 		return c.SendString("OK")
@@ -18,10 +22,6 @@ func New(gh gamehdl.Handler) *fiber.App {
 
 	// Game handler route
 	app.Post("/game", gh.Play)
-
-	app.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"*"},
-	}))
 
 	return app
 }
