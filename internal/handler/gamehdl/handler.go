@@ -37,11 +37,3 @@ func (h *handler) Play(ctx fiber.Ctx) error {
 	// This could be replaced with actual game logic
 	return ctx.JSON(response)
 }
-
-func PlayCard(hands Hand) Play {
-	if hands.Sum() < 6 {
-		return PlayHit
-	}
-
-	return PlayStand
-}

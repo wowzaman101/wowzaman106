@@ -13,6 +13,14 @@ type Card struct {
 }
 type Hand []Card
 
+func PlayCard(hands Hand) Play {
+	if hands.Sum() < 5 {
+		return PlayHit
+	}
+
+	return PlayStand
+}
+
 func (hand Hand) Sum() int {
 	sum := 0
 	for _, c := range hand {
