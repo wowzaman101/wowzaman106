@@ -18,7 +18,7 @@ func (hand Hand) Sum() int {
 	for _, c := range hand {
 		if c.Number > 10 {
 			sum += 0
-			break
+			continue
 		}
 		sum += c.Number
 	}
