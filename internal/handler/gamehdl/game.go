@@ -16,6 +16,10 @@ type Hand []Card
 func (hand Hand) Sum() int {
 	sum := 0
 	for _, c := range hand {
+		if c.Number > 10 {
+			sum += 0
+			break
+		}
 		sum += c.Number
 	}
 	return sum % 10
